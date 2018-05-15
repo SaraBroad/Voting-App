@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/SaraBroad/Voting-App#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "sequelize": "^4.37.7"
   }
 }
