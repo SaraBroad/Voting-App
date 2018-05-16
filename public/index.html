@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
@@ -20,7 +18,7 @@
         }
         
         .jumbo-bkg {
-            background: url("../public/assets/images/vote1.jpg") no-repeat;
+            background: url("../public/assets/images/vote.jpg") no-repeat;
             background-position: center;
             margin: 0;
             background-color: #000000;
@@ -49,7 +47,6 @@
             width: 200px;
             height: 50px;
         }
-        /* Add a gray background color and some padding to the footer */
         
         footer {
             background-color: #000000;
@@ -80,11 +77,11 @@
 
     <div class="jumbotron jumbo-bkg">
         <div class="container text-center">
-            <h1 class="hidden" id="countdown"></h1>
+            <h1 id="countdown" class="hidden"></h1>
             <p class="hidden">Get out and get involved!</p>
         </div>
 
-        <div class="hidden text-center">
+        <div class="text-center hidden">
             <a href="/users"><button class="btn btn-lg" id="btnUser">User</button></a>
             <a href="/manager"><button class="btn btn-lg" id="btnManager">Manager</button></a>
         </div>
@@ -98,7 +95,7 @@
 
 </body>
 
-</html>
+
 <script>
     // Set the date we're counting down to
     var countDownDate = new Date("Nov 2, 2018 10:00:00").getTime();
@@ -136,3 +133,5 @@
         $("div.hidden").fadeIn(7000).removeClass("hidden");
     });
 </script>
+
+</html>
