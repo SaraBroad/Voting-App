@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            background-color: #000000;
+            color: #c9c6c6;
+        }
+        
+        .jumbo-bkg {
+            background: url("../public/assets/images/vote1.jpg") no-repeat;
+            background-position: center;
+            margin: 0;
+            background-color: #000000;
+            color: #c9c6c6;
+            height: 600px;
+        }
+        
+        #countdown {
+            color: #c9c6c6;
+            -webkit-animation-name: countdown;
+            /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 4s;
+            /* Safari 4.0 - 8.0 */
+            animation-name: countdown;
+            animation-duration: 4s;
+            animation-delay: 3s;
+        }
+        /* Safari 4.0 - 8.0 */
+        
+        @-webkit-keyframes countdown {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0.9;
+            }
+        }
+        /* Standard syntax */
+        
+        @-webkit-keyframes countdown {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0.9;
+            }
+        }
+        /* Buttons */
+        
+        button {
+            border-radius: 15px;
+            background: #000000;
+            color: #c9c6c6;
+            padding: 10px;
+            margin: 300px 20px 0px 20px;
+            width: 200px;
+            height: 50px;
+            -webkit-animation-name: button;
+            /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 4s;
+            /* Safari 4.0 - 8.0 */
+            animation-name: button;
+            animation-duration: 4s;
+            animation-delay: 5s;
+        }
+        /* Safari 4.0 - 8.0 */
+        
+        @-webkit-keyframes button {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0.9;
+            }
+        }
+        /* Standard syntax */
+        
+        @keyframes button {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0.9;
+            }
+        }
+        /* Add a gray background color and some padding to the footer */
+        
+        footer {
+            background-color: #000000;
+            padding: 25px;
+            color: #c9c6c6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbo-bkg">
+        <div class="container text-center">
+            <h1 id="countdown"></h1>
+            <p>Get out and get involved!</p>
+        </div>
+
+        <div class="text-center">
+            <a href="/users"><button class="btn btn-lg" id="buttonUser">User</button></a>
+            <a href="/manager"><button class="btn btn-lg" id="buttonManager">Manager</button></a>
+        </div>
+    </div>
+
+
+
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+
+</body>
+
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Nov 2, 2018 10:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " +
+            minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+    // Button Animations
+    $(document).ready(function() {
+        $("button").click(function() {
+            $(this).fadeOut();
+        });
+    });
+</script>
+
+</html>
