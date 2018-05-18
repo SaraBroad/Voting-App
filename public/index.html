@@ -12,6 +12,7 @@
     <style>
         .navbar {
             margin-bottom: 0;
+            padding-top: 20px;
             border-radius: 0;
             background-color: #000000;
             color: #c9c6c6;
@@ -38,7 +39,7 @@
         }
         /* Buttons */
         
-        button {
+        button.btn {
             border-radius: 15px;
             background: #000000;
             color: #c9c6c6;
@@ -48,10 +49,88 @@
             height: 50px;
         }
         
+        button.btnManager {
+            float: right;
+            border: none;
+            color: #c9c6c6;
+        }
+        
+        .btnManager:hover {
+            color: #f1f1f1;
+            border-bottom: #c9c6c6;
+        }
+        
+        button.btnAbout {
+            float: left;
+            border: none;
+        }
+        
+        button {
+            border-radius: 15px;
+            background: #000000;
+            color: #c9c6c6;
+            padding: 10px;
+            margin: 0px 20px 0px 20px;
+            width: 200px;
+            height: 50px;
+        }
+        
+        a {
+            color: #c9c6c6;
+        }
+        
         footer {
             background-color: #000000;
             padding: 25px;
             color: #c9c6c6;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+        /* Modal Content */
+        
+        .modal-content {
+            background-color: #000000;
+            color: #c9c6c6;
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+        }
+        /* The Close Button */
+        
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #f1f1f1;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -61,18 +140,27 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+                <!-- Trigger/Open The Modal -->
+                <button id="btnAbout">About</button>
+                <button class="btnManager"><a href="/manager">Create Event</a></button>
             </div>
         </div>
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p class="aboutText">To exercise one’s right to vote is an integral part of a functional and healthy democratic form of government. It is a sacred practice given life from the very foundation of our Constitution—the right to free speech. Campaigns and candidates
+                    running for public office spend enormous amounts of money to get their message to the people. Some may label the amount as exorbitant or wasteful. In reality, spending money is an effective way to win elections, and elections count
+                    and therefore every vote counts.
+                    <br><br> “Get Out and Get Involved” is a non-partisan group committed to strengthening the noble exercise of your right to vote by connecting enthusiastic volunteers to political campaigns in need of help on election day. Through our
+                    efforts we can help campaigns spend their money more efficiently by helping them to spread their message while amplifying your personal convictions about how your local government works.
+                    <br><br> If you are a representative of a campaign, register your event to connect with those willing to help you. If you are a concerned voter, register to volunteer at a polling station to help spread the word.
+                    <br><br> “Thinking isn’t agreeing or disagreeing. That’s voting” – Robert Frost</p>
+            </div>
     </nav>
 
     <div class="jumbotron jumbo-bkg">
@@ -82,8 +170,8 @@
         </div>
 
         <div class="text-center hidden">
-            <a href="/users"><button class="btn btn-lg" id="btnUser">User</button></a>
-            <a href="/manager"><button class="btn btn-lg" id="btnManager">Manager</button></a>
+            <a href="/users"><button class="btn btn-lg" id="btnUser">Find Event</button></a>
+
         </div>
     </div>
 
@@ -125,6 +213,33 @@
             document.getElementById("countdown").innerHTML = "EXPIRED";
         }
     }, 1000);
+
+    // POPUP ABOUT TEXT
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnAbout");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 
     // Button Animations
     $(document).ready(function() {
