@@ -36,28 +36,60 @@ app.use(express.static("public"));
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
-        //TEST CODE: DELETE ME//
+
+// =============================================================   
+        /// TEST CODE DELETE ME  //
+// =============================================================
+        db.Manager.create({
+            first_name: "Joe",
+            last_name: "The",
+            email: "thejoe@yahooligans.com",  
+            organization_name: "British Dental Association",  
+            city: "Wilshire, Kentucky",  
+
+        });
+        //for now, manager MUST be created before a campaign event can be
         db.CampaignEvent.create({
-            name: 'Food Drive',
-            location: 'Philadelphia',
+            event_title: 'Food Drive',
+            event_description: 'feeed me',
+            organization_name: '2012 apocalypse fund',
+            organizer_first_name: 'The', 
+            organizer_last_name: 'Joe',
+            street_address: '1234 Evergreen Terrace',
+            city: 'Springfield',
+            state: 'USA',
+            zip_code: '12345',
+            phone_number: '1235352222',
+            time_slots: 2,
+            
+            //this is the foreign key that will be supplied by the middleware
+            //for now I am just supplying it in the table directly
+            //the table will not if ManagerID is Null due to line 26 of events.js
+            ManagerId: 1
         });
         db.Volunteer.create({
             first_name: 'Isaac',
             last_name: 'Philadelphia',
+            street_address: '1234 Evergreen Drive',
+            city: 'New Hork',
             email: 'asdfasdf@gmail.com'
         });
-        /*db.EventVolunteer.create({
+
+        db.EventVolunteer.create({
             time_slot: 'afternoon',
             CampaignEventId: '1',
             VolunteerId: '1',
 
-        });*/
-        //TEST CODE: DELETE ME//
-        db.CampaignEvent.addVolunteer({first_name: 'Joe', last_name: 'The', email: 'thejoe@yoyoyoyoy.com'}, {through: {time_slot: 'afternoon'}});
+        });
+
+
+// =============================================================
+        /// TEST CODE DELETE ME//////
+// =============================================================
+
     });
 });
 
 
 
 
-//models.Volunteer.addCampaignEvent(models.CampaignEvent, { through: { time_slot: 'afternoon' }});
