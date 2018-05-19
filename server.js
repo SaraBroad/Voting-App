@@ -79,7 +79,6 @@ db.sequelize.sync({ force: true }).then(function() {
             time_slot: 'afternoon',
             CampaignEventId: '1',
             VolunteerId: '1',
-
         });
 
 
