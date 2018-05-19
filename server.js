@@ -1,36 +1,96 @@
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
 var express = require("express");
-var passport   = require('passport')
-var session    = require('express-session')
 var bodyParser = require("body-parser");
-var path = require("path");
 
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
+// Sets up the Express App
+// =============================================================
+var app = express();
 var PORT = process.env.PORT || 8080;
 
-// Create express app instance.
-var app = express();
-app.use(express.static("public"));
+// Requiring our models for syncing
+var db = require("./models");
 
-app.get('/', function(req, res) {
- 
-    res.send('Welcome to Passport with Sequelize');
- 
-});
+// Sets up the Express app to handle data parsing
 
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
 app.use(bodyParser.json());
 
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
- 
-app.use(passport.initialize());
- 
-app.use(passport.session()); // persistent login sessions
+// Static directory
+app.use(express.static("public"));
 
-require("./routes/html-routes")(app);
+// Routes
+// =============================================================
+//require("./routes/html-routes.js")(app);
+//require("./routes/event-routes.js")(app);
+//require("./routes/user-routes.js")(app);
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+
+// =============================================================   
+        /// TEST CODE DELETE ME  //
+// =============================================================
+        db.Manager.create({
+            first_name: "Joe",
+            last_name: "The",
+            email: "thejoe@yahooligans.com",  
+            organization_name: "British Dental Association",  
+            city: "Wilshire, Kentucky",  
+
+        });
+        //for now, manager MUST be created before a campaign event can be
+        db.CampaignEvent.create({
+            event_title: 'Food Drive',
+            event_description: 'feeed me',
+            organization_name: '2012 apocalypse fund',
+            organizer_first_name: 'The', 
+            organizer_last_name: 'Joe',
+            street_address: '1234 Evergreen Terrace',
+            city: 'Springfield',
+            state: 'USA',
+            zip_code: '12345',
+            phone_number: '1235352222',
+            time_slots: 2,
+            
+            //this is the foreign key that will be supplied by the middleware
+            //for now I am just supplying it in the table directly
+            //the table will not if ManagerID is Null due to line 26 of events.js
+            ManagerId: 1
+        });
+        db.Volunteer.create({
+            first_name: 'Isaac',
+            last_name: 'Philadelphia',
+            street_address: '1234 Evergreen Drive',
+            city: 'New Hork',
+            email: 'asdfasdf@gmail.com'
+        });
+
+        db.EventVolunteer.create({
+            time_slot: 'afternoon',
+            CampaignEventId: '1',
+            VolunteerId: '1',
+
+        });
+
+
+// =============================================================
+        /// TEST CODE DELETE ME//////
+// =============================================================
+
+    });
 });
+
+
+
+//db.CampaignEvent.addVolunteer({first_name: 'Joe', last_name: 'The', email: 'thejoe@yoyoyoyoy.com'}, {through: {time_slot: 'afternoon'}});
+//models.Volunteer.addCampaignEvent(models.CampaignEvent, { through: { time_slot: 'afternoon' }});
