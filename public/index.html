@@ -12,10 +12,13 @@
     <style>
         .navbar {
             margin-bottom: 0;
-            padding-top: 20px;
             border-radius: 0;
             background-color: #000000;
             color: #c9c6c6;
+        }
+        
+        ul {
+            list-style-type: none;
         }
         
         .jumbo-bkg {
@@ -33,57 +36,85 @@
             font-size: 48px;
         }
         
+        .jumbotron {
+            padding: 0px;
+        }
+        
         .jumbotron p {
             color: #c9c6c6;
             font-size: 36px;
         }
-        /* Buttons */
-        
-        button.btn {
-            border-radius: 15px;
-            background: #000000;
-            color: #c9c6c6;
-            padding: 10px;
-            margin: 300px 20px 0px 20px;
-            width: 200px;
-            height: 50px;
-        }
-        
-        button.btnManager {
-            float: right;
-            border: none;
-            color: #c9c6c6;
-        }
-        
-        .btnManager:hover {
-            color: #f1f1f1;
-            border-bottom: #c9c6c6;
-        }
-        
-        button.btnAbout {
-            float: left;
-            border: none;
-        }
+        /* *** BEGINNING OF BUTTONS *** */
         
         button {
             border-radius: 15px;
             background: #000000;
             color: #c9c6c6;
-            padding: 10px;
-            margin: 0px 20px 0px 20px;
+            margin: 0px 20px;
             width: 200px;
             height: 50px;
         }
+        /* BUTTON ABOUT */
         
-        a {
+        #btnAbout {
+            float: left;
+            border: none;
+            padding-top: 30px;
+        }
+        /* BUTTON MANAGER */
+        
+        #btnManager {
+            background-color: #000000;
+            color: #c9c6c6;
+            text-align: center;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        
+        #btnManager span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        #btnManager span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        #btnManager:hover span {
+            padding-right: 25px;
             color: #c9c6c6;
         }
+        
+        #btnManager:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        /* BUTTON USER */
+        
+        #btnUser {
+            margin-top: 400px;
+        }
+        
+        #btnUser:hover {
+            padding-right: 25px;
+            color: #c9c6c6;
+        }
+        /* *** END OF BUTTONS *** */
         
         footer {
             background-color: #000000;
-            padding: 25px;
+            padding: 50px 0px 0px 0px;
             color: #c9c6c6;
         }
+        /* *** BEGINNING OF MODAL *** */
         /* The Modal (background) */
         
         .modal {
@@ -103,9 +134,9 @@
             /* Full height */
             overflow: auto;
             /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
+            background-color: #000000;
             /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 0.9;
             /* Black w/ opacity */
         }
         /* Modal Content */
@@ -132,6 +163,7 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* *** END OF MODAL *** */
     </style>
 </head>
 
@@ -139,11 +171,21 @@
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
+
+            <ul class="nav navbar-nav">
                 <!-- Trigger/Open The Modal -->
-                <button id="btnAbout">About</button>
-                <button class="btnManager"><a href="/manager">Create Event</a></button>
-            </div>
+                <li>
+                    <button class="btn btn-lg" id="btnAbout">About</button>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/manager"><button class="btn btn-lg" id="btnManager"><span>User Login</span></button></a>
+                    <a href="/manager"><button class="btn btn-lg" id="btnManager"><span>Manager Login</span></button></a>
+                </li>
+            </ul>
+
         </div>
 
 
@@ -159,7 +201,7 @@
                     <br><br> “Get Out and Get Involved” is a non-partisan group committed to strengthening the noble exercise of your right to vote by connecting enthusiastic volunteers to political campaigns in need of help on election day. Through our
                     efforts we can help campaigns spend their money more efficiently by helping them to spread their message while amplifying your personal convictions about how your local government works.
                     <br><br> If you are a representative of a campaign, register your event to connect with those willing to help you. If you are a concerned voter, register to volunteer at a polling station to help spread the word.
-                    <br><br> “Thinking isn’t agreeing or disagreeing. That’s voting” – Robert Frost</p>
+                    <br><br> “Thinking isn’t agreeing or disagreeing. That’s voting.” – Robert Frost</p>
             </div>
     </nav>
 
@@ -168,17 +210,14 @@
             <h1 id="countdown" class="hidden"></h1>
             <p class="hidden">Get out and get involved!</p>
         </div>
-
         <div class="text-center hidden">
             <a href="/users"><button class="btn btn-lg" id="btnUser">Find Event</button></a>
-
+            <a href="/users"><button class="btn btn-lg" id="btnUser">Create Event</button></a>
         </div>
     </div>
 
-
-
     <footer class="container-fluid text-center">
-        <p>Footer Text</p>
+        <p>&#169 Some cool people</p>
     </footer>
 
 </body>
