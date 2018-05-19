@@ -1,7 +1,9 @@
 // *****************************************************************************
 // events.js - This file creates the campaign events table
 //
-// ******************************************************************************
+//
+******************************************************************************
+//
 
 module.exports = function(sequelize, DataTypes) {
     var CampaignEvent = sequelize.define("CampaignEvent", {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Event-Create Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <!-- JUMBOTRON -->
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>Log Into Your Account</h1>
+
+            </div>
+        </div>
+        <!-- END JUMBOTRON -->
+
+
+
+        <div class="container">
+            <div class="content-event-log-in">
+                <br>
+
+                <div class="event-form-group">
+                    <label for="orgName">Email Address:</label>
+                    <input type="text" name="orgName" placeholder="" class="form-control" id="emailAddr" required>
+                </div>
+                <br>
+
+                <div class="event-form-group">
+                    <label for="mgrName">Password</label>
+                    <input type="password" name="mgrName" placeholder="" class="form-control" id="password" required>
+                </div>
+                </br>
+
+                <td class="formLabel corp_login_links">
+                    <br>
+                    <span id="register-link">
+                        <a id="registration_link_1" href="" onclick="" title="Volunteer Registration">Register for Account</a>
+                    </span>
+
+                </td>
+                <td>
+                    <input class="submit" type="submit" id="login" value="Log In">
+                </td>
+
+
+                <script>
+                    $("#login").click(function () {
+
+
+                        var LogInEvent = {
+                            mgrEmail: $("#emailAddr").val().trim(),
+                            password: $("#password").val().trim()
+
+                        }
+                        console.log(LogInEvent);
+                       
+                        // redirect to MgrEventCreate.html
+                        window.location.href = "MgrEventCreate.html";
+                        console.log("redirecting");
+                    })
+                </script>
+
+    </body>
+
+</html>

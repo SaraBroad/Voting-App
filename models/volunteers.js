@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
       last_name: DataTypes.STRING,
       street_address:DataTypes.STRING,
       city:DataTypes.STRING,
-      email: DataTypes.STRING,  
+      state: DataTypes.STRING,
+      phone: DataTypes.STRING,
+      password: DataTypes.STRING, 
     });
     return Volunteer;
   };
