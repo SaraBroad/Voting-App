@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "Fiction1912",
+      "password": null,
       "database": "voting_app",
       "host": "localhost",
       "dialect": "mysql"
