@@ -12,10 +12,9 @@ module.exports = function(app) {
   });
 
   app.get("/users", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/users.html"));
+    res.sendFile(path.join(__dirname, "../public/volunteer-events.html"));
   });
 
-  // blog route loads blog.html
   app.get("/register", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -26,5 +25,9 @@ module.exports = function(app) {
 
   app.get("/managers", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/managers.html"));
+  });
+
+  app.get("/getpassword", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/forgotpassword.html"));
   });
 };

@@ -12,7 +12,6 @@
 
 
 
-    </style>
 </head>
 
 <body>
@@ -103,6 +102,12 @@
                                 <option value="WY">Wyoming</option>
                             </select>
                         </div>
+
+                        <div class="event-form-group">
+                                <label for="zip">Zip code:</label>
+                                <input type="text" class="form-control" placeholder="Zip Code" id="zip" required>
+                            </div>
+    
                         <div class="form-group">
                             <label for="email">E-mail address</label>
                             <input type="email" class="form-control" id="email" placeholder="Password" required>
@@ -120,7 +125,7 @@
                             <label for="confirmpassword">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" required>
                         </div>
-                        <button class="btn btn-primary" type="submit">Register</button>
+                        <button class="btn btn-primary submit-btn" type="submit">Register</button>
                     </form>
                 </div>
             </div>
@@ -131,35 +136,39 @@
 
         $(document).ready(function () {
 
-            $(".btn").on("click", function (event) {
+            $(".submit-btn").on("click", function (event) {
                 event.preventDefault();
                 var firstName = $("#firstname").val().trim();
                 var lastName = $("#lastname").val().trim();
                 var address = $("#streetAddress").val().trim();
                 var city = $("#city").val().trim();
-                //var state = $("#state").val().trim();
+                var state = $("#state").val().trim();
+                var zipcode = $("#zip").val().trim();
                 var email = $("#email").val().trim();
-                //var phone = $("#phone").val().trim();
-                //var password = $("#password").val().trim();
-                //var password = $("#confirmpassword").val().trim();
+                var phone = $("#phone").val().trim();
+                var password = $("#password").val().trim();
+                var confirmpassword = $("#confirmpassword").val().trim();
 
                 var newVolunteer = {
-                    firstname: firstname,
-                    lastname: lastname,
-                    address: address,
+                    first_name: firstName,
+                    last_name: lastName,
+                    street_address: address,
                     city: city,
-                    //state: state,
+                    state: state,
+                    zipcode: zipcode,
                     email: email,
-                    //password: password
+                    password: password
                     //password: password
                 };
-                $.ajax("/???", {
+
+                console.log(newVolunteer);
+                $.ajax("/api/newuser", {
                     type: "POST",
                     data: newVolunteer
                 }).then(
                     function () {
-                        console.log("Created new burger");
-                        //need next step
+                        console.log("Created new user");
+                        // res.redirect
                     }
                 )
             });
