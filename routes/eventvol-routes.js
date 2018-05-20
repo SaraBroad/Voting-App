@@ -4,8 +4,12 @@ module.exports = function(app) {
 
 //get 
 app.get("/api/eventlisting", function(req, res){
-    
-})
+    db.CampaignEvent.findAll({}).then(function(dbCampaignEvent){
+        res.json(dbCampaignEvent)
+    });
+});
+
+
 
 app.put("/api/postreg", function(req, res){
 console.log(req.body);
