@@ -28,9 +28,10 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/user-routes.js")(app);
-//require("./routes/event-routes.js")(app);
-//require("./routes/user-routes.js")(app);
+// require("./routes/eventvol-routes.js")(app);
+require("./routes/volunteer-routes.js")(app);
+// require("./routes/event-routes.js")(app);
+// require("./routes/user-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -61,20 +62,20 @@ db.sequelize.sync({ force: true }).then(function() {
         //     state: 'USA',
         //     zip_code: '12345',
         //     phone_number: '1235352222',
-        //     time_slots: 2,
+        //     time_slots: 1
             
         //     //this is the foreign key that will be supplied by the middleware
         //     //for now I am just supplying it in the table directly
         //     //the table will not if ManagerID is Null due to line 26 of events.js
-        //     ManagerId: 1
+         
         // });
-        // // db.Volunteer.create({
-        // //     first_name: 'Isaac',
-        // //     last_name: 'Philadelphia',
-        // //     street_address: '1234 Evergreen Drive',
-        // //     city: 'New Hork',
-        // //     email: 'asdfasdf@gmail.com'
-        // // });
+        // db.Volunteer.create({
+        //     first_name: 'Isaac',
+        //     last_name: 'Philadelphia',
+        //     street_address: '1234 Evergreen Drive',
+        //     city: 'New Hork',
+        //     email: 'asdfasdf@gmail.com'
+        // });
 
         // db.EventVolunteer.create({
         //     time_slot: 'afternoon',

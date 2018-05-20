@@ -67,14 +67,31 @@
         </footer>
 
         <script>
-        $(document).ready(function(){
-            $("#eventreg").on("click", function(){
-                alert("You are registered for the event!");
-                res.redirect("/")
+        $(document).ready(function () {
+                //api call events which would return array of events
+
+
+                $("#eventreg").on("click", function (post) {
+                    event.preventDefault();
+                    alert("You are registered for the event!");
+                    $.ajax('/api/events')({
+                        method: "PUT",
+                        url: "/api/postreg",
+                        data: post
+                    })
+                        .then(function (events) {
+                            window.location.href = "/volunteer-events"
+                            //.then for (var i = 0; )
+                        })
+
+                });
+
+
             });
-        });
         </script>
 
     </body>
 
 </html>
+
+
