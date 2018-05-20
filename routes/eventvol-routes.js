@@ -10,7 +10,6 @@ app.get("/api/eventlisting", function(req, res){
 });
 
 
-
 app.put("/api/postreg", function(req, res){
 console.log(req.body);
 db.EventVolunteer({
