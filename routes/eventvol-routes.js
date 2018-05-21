@@ -3,14 +3,14 @@ var db = require("../models")
 module.exports = function(app) {
 
 //get 
-app.get("/api/eventlisting", function(req, res){
+app.get("/api/events", function(req, res){
     db.CampaignEvent.findAll({}).then(function(dbCampaignEvent){
         res.json(dbCampaignEvent)
     });
 });
 
 
-app.put("/api/postreg", function(req, res){
+app.post("/api/postreg", function(req, res){
 console.log(req.body);
 db.EventVolunteer({
     id: req.body.id,

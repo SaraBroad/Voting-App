@@ -1,10 +1,6 @@
 $(document).ready(function () {
-    //api call events which would return array of events
-    //.then for (var i = 0; )
-    var events;
-
     function getEvents() {
-        $.get("/api/eventlistings", function (data) {
+        $.get("/api/events", function (data) {
             if (data.length !== 0) {
                 for (var i = 0; i < data.length; i++) {
                     var row = $("<div>");
@@ -18,7 +14,6 @@ $(document).ready(function () {
                     row.append("<p>Event name: " + data[i].state + "<p>");
                     row.append("<p>Event name: " + data[i].phone_number + "<p>");
                     row.append("<p>Event name: " + data[i].time_slots + "<p>");
-
                     $("#event-box").prepend(row);
 
                 };
@@ -26,6 +21,10 @@ $(document).ready(function () {
         });
     };
 
+
+    $("eventreg").on("click", function(post){
+        event.preventDefault();
+    })
 
     getEvents();
     $("#eventreg").on("click", function (post) {
@@ -40,6 +39,4 @@ $(document).ready(function () {
                 window.location.href = "/volunteer-events"
             })
     });
-
-
 });

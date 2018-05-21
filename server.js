@@ -28,8 +28,9 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-// require("./routes/eventvol-routes.js")(app);
+require("./routes/eventvol-routes.js")(app);
 require("./routes/volunteer-routes.js")(app);
+
 // require("./routes/event-routes.js")(app);
 // require("./routes/user-routes.js")(app);
 
