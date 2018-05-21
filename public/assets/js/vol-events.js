@@ -15,25 +15,31 @@ $(document).ready(function () {
                     row.append("<p>Event name: " + data[i].phone_number + "<p>");
                     row.append("<p>Event name: " + data[i].time_slots + "<p>");
                     $("#event-box").prepend(row);
-
                 };
             };
         });
     };
+
+    getEvents();
 
 
     $("eventreg").on("click", function(post){
         event.preventDefault();
     })
 
-    getEvents();
+  
+
     $("#eventreg").on("click", function (post) {
         event.preventDefault();
         alert("You are registered for the event!");
-        $.ajax('/api/events')({
-            method: "PUT",
+        var newRegister = {
+            CampaignEventId: // the id of the user that's logged in,
+            VolunteerId: // the id of the event that they clicked on 
+        }
+        $.ajax('/api/eventreg')({
+            method: "POST",
             url: "/api/postreg",
-            data: post
+            data: newRegister
         })
             .then(function (events) {
                 window.location.href = "/volunteer-events"

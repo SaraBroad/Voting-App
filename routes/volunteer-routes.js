@@ -16,6 +16,13 @@ module.exports = function (app) {
         });
     });
 
+    app.post("/api/eventreg", function (req, res){
+        
+        db.EventVolunteer.create(req.body).then(function(dbEventVolunteer){
+
+        })
+    })
+
     // // app.get("/api/volunteers", function(req, res){
     // //     db.Volunteer.findAll({
     // //     });
