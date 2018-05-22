@@ -16,10 +16,9 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/api/eventreg", function (req, res){
-        
+    app.post("/api/eventreg", function (req, res){ 
         db.EventVolunteer.create(req.body).then(function(dbEventVolunteer){
-
+            res.json(dbEventVolunteer)
         })
     })
 

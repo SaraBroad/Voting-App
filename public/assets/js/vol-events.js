@@ -1,6 +1,8 @@
 $(document).ready(function () {
+
     function getEvents() {
         $.get("/api/events", function (data) {
+            console.log(data);
             if (data.length !== 0) {
                 for (var i = 0; i < data.length; i++) {
                     var row = $("<div>");
@@ -13,7 +15,7 @@ $(document).ready(function () {
                     row.append("<p>Event name: " + data[i].city + ", " + data[i].state + " " + data[i].zip_code + "<p>");
                     row.append("<p>Event name: " + data[i].state + "<p>");
                     row.append("<p>Event name: " + data[i].phone_number + "<p>");
-                    row.append("<p>Event name: " + data[i].time_slots + "<p>");
+                    // row.append("<p>Event name: " + data[i].time_slots + "<p>");
                     $("#event-box").prepend(row);
                 };
             };
@@ -32,17 +34,18 @@ $(document).ready(function () {
     $("#eventreg").on("click", function (post) {
         event.preventDefault();
         alert("You are registered for the event!");
-        var newRegister = {
-            CampaignEventId: // the id of the user that's logged in,
-            VolunteerId: // the id of the event that they clicked on 
-        }
+        // var newRegister = {
+        //     VolunteerId: '3',
+        //     CampaignEventId: // the id of the event that they clicked on 
+        // }
         $.ajax('/api/eventreg')({
             method: "POST",
             url: "/api/postreg",
             data: newRegister
         })
             .then(function (events) {
-                window.location.href = "/volunteer-events"
+                // change the button text to say "registered" instead of "register"
+                //
             })
     });
 });
