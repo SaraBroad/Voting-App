@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       state: DataTypes.STRING,
       zip_code: DataTypes.STRING,
       phone_number: DataTypes.STRING,
-      time_slots: DataTypes.INTEGER
+      volunteers_needed: DataTypes.INTEGER
       
     });
   
@@ -29,8 +29,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       });
     };
-  
-  
+     
     return CampaignEvent;
   };
   

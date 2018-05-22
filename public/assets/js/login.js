@@ -1,3 +1,13 @@
+$(document).ready(function () {
+    // ########################################################################################
+
+    // **************************FOR USERLOGINS ONLY*****************************
+
+    // ########################################################################################
+
+    
+
+
 $(".submit-btn").on("click", function(event){
     event.preventDefault();
     var email = "";
@@ -12,3 +22,4 @@ $(".submit-btn").on("click", function(event){
 //if email is not in db - alert
 //if password doesn't match db password - alert incorrect password
 //if both match - continue to events page window.location.href = "/"
+});

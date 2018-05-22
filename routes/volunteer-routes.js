@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 var db = require("../models");
 
 module.exports = function (app) {
@@ -30,3 +32,4 @@ module.exports = function (app) {
 
 
 
+>>>>>>> 75da7f079fbcaa4f60e5ed94a8284c8d43142ff9
