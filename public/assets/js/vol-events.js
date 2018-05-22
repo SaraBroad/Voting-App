@@ -34,18 +34,30 @@ $(document).ready(function () {
     $("#eventreg").on("click", function (post) {
         event.preventDefault();
         alert("You are registered for the event!");
-        // var newRegister = {
-        //     VolunteerId: '3',
-        //     CampaignEventId: // the id of the event that they clicked on 
-        // }
+        var newRegister = {
+            VolunteerId: 3,
+            CampaignEventId: 3
+        }
         $.ajax('/api/eventreg')({
             method: "POST",
             url: "/api/postreg",
-            data: newRegister
+            data: post
         })
             .then(function (events) {
-                // change the button text to say "registered" instead of "register"
-                //
+                client.messages
+                    .create({
+                        body: `Hello from Twilio`,
+                        from: '+16104630729',
+                        //  mediaUrl: '',
+                        to: '+16107801122'
+                    })
+                    .then(message => console.log(message.sid))
+                    .done();
             })
     });
 });
+
+// var newRegister = {
+//     VolunteerId: // sessionStorage.getItem('userId'),
+//     CampaignEventId: // the id of the event that they clicked on 
+// }
