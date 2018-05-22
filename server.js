@@ -27,15 +27,51 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-//require("./routes/html-routes.js")(app);
-//require("./routes/event-routes.js")(app);
-//require("./routes/user-routes.js")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/manager-API-routes.js")(app);
+
+// require("./routes/event-routes.js")(app);
+// require("./routes/user-routes.js")(app);
+
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
+
+// ********************** TWILIO ****************************************
+// Download the helper library from https://www.twilio.com/docs/node/install
+// Your Account Sid and Auth Token from twilio.com/console
+// const accountSid = 'AC99ccd7368d5e2e45dc69eeabaf2374cd';
+// const authToken = '6f2d5b8eff96067cbf5ab73a9332e1cb';
+// const client = require('twilio')(accountSid, authToken);
+
+// client.messages
+//       .create({
+//          body: `Hello from Twilio`,
+//          from: '+16104630729',        
+//         //  mediaUrl: '',
+//          to: '+16107801122'
+//        })
+//       .then(message => console.log(message.sid))
+//       .done();
+
+    // app.listen(PORT, function() {
+    //     console.log("App listening on PORT " + PORT);
+    // });
+
+    // client.messages
+    //   .create({
+    //      body: `Thanks for volunteering`,
+    //      from: '+16104630729',        
+    //     //  mediaUrl: '',
+    //      to: '+'+ USERPHONENUMBER','
+    //    })
+    //   .then(message => console.log(message.sid))
+    //   .done();
+
 
 // =============================================================   
         /// TEST CODE DELETE ME  //
@@ -79,6 +115,7 @@ db.sequelize.sync({ force: true }).then(function() {
             time_slot: 'afternoon',
             CampaignEventId: '1',
             VolunteerId: '1',
+
         });
 
 

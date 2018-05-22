@@ -1,4 +1,4 @@
-// Defines the manager
+//manager to 
 
 
 module.exports = function(sequelize, DataTypes) {

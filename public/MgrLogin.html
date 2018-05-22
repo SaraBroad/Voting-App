@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src = "assets/js/MgrLogin.js"></script>
         <style>
         </style>
     </head>
@@ -53,22 +54,7 @@
                 </td>
 
 
-                <script>
-                    $("#login").click(function () {
 
-
-                        var LogInEvent = {
-                            mgrEmail: $("#emailAddr").val().trim(),
-                            password: $("#password").val().trim()
-
-                        }
-                        console.log(LogInEvent);
-                       
-                        // redirect to MgrEventCreate.html
-                        window.location.href = "MgrEventCreate.html";
-                        console.log("redirecting");
-                    })
-                </script>
 
     </body>
 
