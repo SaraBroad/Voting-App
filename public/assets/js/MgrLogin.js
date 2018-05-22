@@ -15,6 +15,8 @@ $(document).ready(function () {
             password: $("#password").val().trim()
 
         }
+        
+        // queries the database based on the email provided
 
         $.get("/api/manager/" + LogInEvent.mgrEmail)
 
@@ -24,6 +26,7 @@ $(document).ready(function () {
         .then(function(data) {
             var id = data.id;
             console.log(id);
+                // Stores the manager ID retrieved from the database in the session 
                 sessionStorage.setItem("managerId", parseInt(data.id));
                 window.location.href = "index.html";
                 console.log("redirecting");

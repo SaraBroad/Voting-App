@@ -24,6 +24,8 @@ $(document).ready(function () {
             phone_number: $("#phone_number").val().trim(),
             volunteers_needed: $("#volunteers_needed").val().trim(),
             event_description: $("#event_description").val().trim(),
+
+            // retrieves the manager ID from the session and feeds it into the database object
             managerId: parseInt(sessionStorage.getItem("managerId"))
         };
 
