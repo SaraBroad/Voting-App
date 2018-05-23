@@ -1,58 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Manager's Event ListingPage</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <title>Manager's Event ListingPage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-        </style>
-    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:900|Montserrat:300" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body,
+        .jumbotron {
+            background-color: #000000;
+            color: #c9c6c6;
+            font-weight: 100px;
+        }
+        
+        h1,
+        h3 {
+            font-family: 'Maven Pro', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .jumbotron {
+            padding: 10px;
+        }
+        
+        p,
+        button {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .event-row {
+            max-width: 80%;
+            margin-left: 10%;
+            border-top: 2px solid #c9c6c6;
+            border-bottom: 2px solid #c9c6c6;
+            padding: 20px 0px;
+        }
+        
+        .btn-info {
+            color: #c9c6c6;
+            background-color: #000000;
+            border-color: #c9c6c6;
+            border-radius: 0px;
+            transition: all 0.5s;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Maven Pro', sans-serif;
+        }
+        
+        .btn-info:hover {
+            background-color: #242424;
+            border-color: #c9c6c6;
+            border-width: 3px;
+            letter-spacing: 2px;
+        }
+        
+        footer {
+            background-color: #000000;
+            padding: 50px 0px 0px 0px;
+            color: #c9c6c6;
+        }
+    </style>
+</head>
 
-    <body>
-        <!-- JUMBOTRON -->
-        <div class="jumbotron">
-            <div class="container text-center">
-                <h1>All Event Listings</h1>
+<body>
+    <!-- JUMBOTRON -->
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>All Event Listings</h1>
 
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click here to create new event</button>
-            </div>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click here to create new event</button>
         </div>
-        <!-- END JUMBOTRON -->
+    </div>
+    <!-- END JUMBOTRON -->
 
 
-        <!-- EVENT HEADER -->
-        <div class="container-fluid sm-3 text-center">
-            <h3>Events sorted by campaign</h3>
+    <!-- EVENT HEADER -->
+    <div class="container-fluid sm-3 text-center">
+        <h3>Events sorted by campaign</h3>
+    </div>
+    <!-- END EVENT HEADER -->
+
+
+    <!-- EVENT LISTINGS -->
+    <div class="container-fluid sm-3 text-center">
+        <div class="event-row" "col-md-3 col-md-offset-3">
+            <div id="listings"></div>
+            <p><b>Event name: </b>South Philadelphia Polling</p>
+            <p><b>Organizer Name: </b>Barack Obama</p>
+            <p><b>Street: </b>1234 Passyunk Ave.</p>
+            <p><b>City, State, Zip: </b>Philadelphia, PA 19148</p>
+            <p><b>Phone number: </b>215-555-5555</p>
+            <p><b>Time Slots: </b>Morning, Afternoon, Evening</p>
+
+
         </div>
-        <!-- END EVENT HEADER -->
+    </div>
 
+    <!-- END EVENT LISTINGS -->
 
-        <!-- EVENT LISTINGS -->
-        <div class="container-fluid sm-3 text-center">
-            <div class="event-row" "col-md-3 col-md-offset-3">
-                <div id="listings"></div>
-                <p>Event name: South Philadelphia Polling</p>
-                <p>Organizer Name: Barack Obama</p>
-                <p>Street: 1234 Passyunk Ave.</p>
-                <p>City, State, Zip: Philadelphia, PA 19148</p>
-                <p>Phone number: 2155555555</p>
-                <p>Time Slots: morning, afternoon, evening</p>
-            </div>
-        </div>
+    <footer class="container-fluid text-center">
+        <p>Copyright &#169 2018 Get Out and Get Involved</p>
+    </footer>
 
-
-
-
-        <!-- END EVENT LISTINGS -->
-
-
-
-    </body>
+</body>
 
 </html>

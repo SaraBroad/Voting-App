@@ -3,129 +3,165 @@
 
     <head>
         <title>Manager Create Account Page</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS & JS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="css/styles.css" media="screen" title="no title"> -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <style>
-        </style>
+                body,
+                .jumbotron {
+                    background-color: #000000;
+                    color: #c9c6c6;
+                    font-weight: 100px;
+                }
+                
+                .jumbotron {
+                    padding: 10px;
+                }
+                
+                .form-control {
+                    border-radius: 0px;
+                }
+                
+                h1,
+                h3 {
+                    font-family: 'Maven Pro', sans-serif;
+                    letter-spacing: 1px;
+                }
+                
+                label,
+                p,
+                input {
+                    font-family: 'Montserrat', sans-serif;
+                }
+                /* Button Styling*/
+                
+                #submit {
+                    color: #c9c6c6;
+                    background-color: #000000;
+                    border-color: #c9c6c6;
+                    border-radius: 0px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    text-align: center;
+                    font-family: 'Maven Pro', sans-serif;
+                }
+                
+                #submit:hover {
+                    background-color: #242424;
+                    border-color: #c9c6c6;
+                    border-width: 3px;
+                    letter-spacing: 2px;
+                }
+                /* End of Button Styling */
+                
+                footer {
+                    background-color: #000000;
+                    padding: 50px 0px 0px 0px;
+                    color: #c9c6c6;
+                }
+            </style>
+
+
     </head>
 
     <body>
+
+            <div class="container-fluid">
+
+                    <ul class="nav navbar-nav">
+                        <!-- Trigger/Open The Modal -->
+                        <li>
+                            <button class="btn btn-lg" id="btnAbout"><b>About</b></button>
+                        </li>
+                    </ul>
+        
+                    <!-- <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/register"><button class="btn btn-lg" id="btnVolunteer"><span>Volunteer Login</span></button></a>
+                        </li>
+                        <li>
+                            <a href="/managers"><button class="btn btn-lg" id="btnManager"><span>Manager Login</span></button></a>
+                        </li>
+                    </ul> -->
+                </div>
+
         <!-- JUMBOTRON -->
         <div class="jumbotron">
-            <div class="container text-center">
-                <h1>Create an Account</h1>
+            <div class="row">
+                <div class="col-sm-12 col-sm-12">
 
+                    <div class="container text-center">
+                        <h1>Create an Account</h1>
+
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END JUMBOTRON -->
 
+
         <div class="container">
-            <div class="content-register">
-                <div class="event-header">
-                    <div class="password-area"></div>
 
-                    <h3>Your Information:</h3>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+
+                    <div class="manager-container">
+                        <h1>Your Information</h1>
+
+                        <form id="manager-createAccount-form">
+                            <label for="orgName">Organization Name:</label>
+                            <input type="text" class="form-control" name="orgName" placeholder="Organization's Name" id="organization_name"
+                                required />
+
+                            <label for="mgrName">Your First Name</label>
+                            <input type="text" class="form-control" name="mgrName" placeholder="Your first name" id="first_name"
+                                required />
+
+                            <label for="mgrLastName">Your Last Name</label>
+                            <input type="text" class="form-control" name="mgrName" placeholder="Your last name" id="last_name"
+                                required />
+
+                                <label for="city">email</label>
+                                <input type="text" class="form-control" name="email" placeholder="" id="email"
+                                    required />
+
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" name="city" placeholder="" id="city"
+                                    required />
+    
+
+                            <!-- <label for="phone">Phone:</label>
+                            <input type="text" class="form-control" id="phone" name="phone" size="12" minlength="12" maxlength="12"
+                                pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="Phone number i.e. xxx-xxx-xxxx"
+                                title="format 555-555-1234" required /> -->
+
+                            <label for="mgrName">Password</label>
+                            <input type="password" class="form-control" name="mgrName" placeholder="password" id="password" required
+                            />
+
+                            <label for="mgrName">Confirm Password</label>
+                            <input type="password" class="form-control" name="mgrName" placeholder="password" id="passwordConf" required
+                            />
+
+                            <input class="submit" type="submit" id="submit" value="Submit">
+
+                        </form>
+                    </div>
                 </div>
-                <br>
+            </div>
+        </div>
+        <!-- Custom Script -->
+        <script src="assets/js/MgrCreateAccount.js" type="text/javascript"></script>
 
-                <div class="event-form-group">
+         </script>
 
-                    <label for="orgName">Organization Name:</label>
-                    <input type="text" name="orgName" placeholder="Organization's Name" class="form-control" id="orgName"
-                        required>
-                </div>
-                <br>
-
-                <div class="event-form-group">
-                    <label for="mgrName">Your First Name</label>
-                    <input type="text" name="mgrName" placeholder="Your first name" class="form-control" id="mgrFirstName"
-                        required>
-
-                </div>
-                <br>
-                <div class="event-form-group">
-                    <label for="mgrName">Your Last Name</label>
-                    <input type="text" name="mgrName" placeholder="Your last name" class="form-control" id="mgrLastName"
-                        required>
-
-                </div>
-                </br>
-
-                <div class="event-form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" class="form-control" id="phone" name="phone" size="12" minlength="12" maxlength="12"
-                        pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="xxx-xxx-xxxx" title="format 555-555-1234"
-                        required>
-                </div>
-                <br>
-
-                <div class="event-form-group">
-                    <label for="mgrName">Password</label>
-                    <input type="password" name="mgrName" placeholder="" class="form-control" id="password" required>
-                </div>
-                </br>
-
-                <div class="event-form-group">
-                    <label for="mgrName">Confirm Password</label>
-                    <input type="password" name="mgrName" placeholder="" class="form-control" id="passwordConf" required>
-                </div>
-                </br>
-
-
-
-
-                <td>
-                    <input class="submit" type="submit" id="submit" value="Submit">
-                </td>
-
-
-
-                <script>
-                    $(document).ready(function () {
-                        console.log("ready!");
-
-                        $("#submit").click(function (event) {
-                            event.preventDefault();
-                            validation();
-
-                            function validation() {
-                                var password = $("#password").val();
-                                var password2 = $("#passwordConf").val();
-                                if (password != password2) {
-                                    $("#passwordConf").val("");
-                                    $("#password").val("");
-                                    $(".password-area").html(
-                                        "<div class='password-area'><h3><strong>Passwords do not match. Please try again<strong></h3></div>"
-                                    );
-                                } else {
-                                    $(".alert-area").html("");
-                                }
-                            }
-
-                            var NewMgr = {
-                                orgName: $("#orgName").val().trim(),
-                                mgrFirstName: $("#mgrFirstName").val().trim(),
-                                mgrLastName: $("#mgrLastName").val().trim(),
-                                MgrPhoneNumber: $("#phone").val().trim(),
-                                password: $("#password").val().trim(),
-                                passwordConf: $("#passwordConf").val().trim()
-
-                            }
-                            console.log("New Object created", NewMgr);
-
-                            // redirect to MgrEventCreate.html
-                            window.location.href = "MgrEventCreate.html";
-                            console.log("redirecting");
-                        })
-
-
-
-                    });
-                </script>
 
     </body>
 

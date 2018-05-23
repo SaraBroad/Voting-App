@@ -9,12 +9,20 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:900|Montserrat:300" rel="stylesheet">
     <style>
+        body {
+            height: 100%;
+            background-color: #000000;
+        }
+        
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
             background-color: #000000;
             color: #c9c6c6;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100px;
         }
         
         ul {
@@ -22,7 +30,7 @@
         }
         
         .jumbo-bkg {
-            background: url("../public/assets/images/vote.jpg") no-repeat;
+            background: url("assets/images/vote.jpg") no-repeat;
             background-position: center;
             margin: 0;
             background-color: #000000;
@@ -34,6 +42,8 @@
             color: #c9c6c6;
             display: hidden;
             font-size: 48px;
+            font-family: 'Maven Pro', sans-serif;
+            letter-spacing: 3px;
         }
         
         .jumbotron {
@@ -43,6 +53,7 @@
         .jumbotron p {
             color: #c9c6c6;
             font-size: 36px;
+            font-family: 'Montserrat', sans-serif;
         }
         /* *** BEGINNING OF BUTTONS *** */
         
@@ -68,9 +79,12 @@
             background-color: #000000;
             color: #c9c6c6;
             text-align: center;
-            width: 200px;
+            width: 170px;
             transition: all 0.5s;
             cursor: pointer;
+            float: right;
+            margin: 0px;
+            padding: 0px;
         }
         
         #btnVolunteer span,
@@ -105,15 +119,25 @@
         
         #btnFind,
         #btnCreate {
-            margin-top: 300px;
+            color: #c9c6c6;
+            background-color: #000000;
+            border-color: #c9c6c6;
+            border-radius: 0px;
+            transition: all 0.5s;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Maven Pro', sans-serif;
+            margin-top: 30%;
+        }
+        
+        #btnFind:hover,
+        #btnCreate:hover {
+            background-color: #242424;
+            border-color: #c9c6c6;
+            border-width: 3px;
+            letter-spacing: 2px;
         }
         /* *** END OF BUTTONS *** */
-        
-        footer {
-            background-color: #000000;
-            padding: 50px 0px 0px 0px;
-            color: #c9c6c6;
-        }
         /* *** BEGINNING OF MODAL *** */
         /* The Modal (background) */
         
@@ -164,6 +188,12 @@
             cursor: pointer;
         }
         /* *** END OF MODAL *** */
+        
+        footer {
+            background-color: #000000;
+            padding: 50px 0px 0px 0px;
+            color: #c9c6c6;
+        }
     </style>
 </head>
 
@@ -175,19 +205,19 @@
             <ul class="nav navbar-nav">
                 <!-- Trigger/Open The Modal -->
                 <li>
-                    <button class="btn btn-lg" id="btnAbout">About</button>
+                    <button class="btn btn-lg" id="btnAbout"><b>About</b></button>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/login"><button class="btn btn-lg" id="btnVolunteer"><span>Volunteer Login</span></button></a>
+                    <a href="/volLogin"><button class="btn btn-lg" id="btnVolunteer"><span>Volunteer Login</span></button></a>
+                </li>
+                <li>
                     <a href="/MgrLogin"><button class="btn btn-lg" id="btnManager"><span>Manager Login</span></button></a>
                 </li>
             </ul>
-
         </div>
-
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -211,13 +241,13 @@
             <p class="hidden">Get out and get involved!</p>
         </div>
         <div class="text-center hidden">
-            <a href="/signup"><button class="btn btn-lg" id="btnFind">Find Event</button></a>
-            <a href="/MgrCreateAccount"><button class="btn btn-lg" id="btnCreate">Create Event</button></a>
+            <a href="/login"><button class="btn btn-lg" id="btnFind">Find Event</button></a>
+            <a href="MgrCreateAccount.html"><button class="btn btn-lg" id="btnCreate">Create Event</button></a>
         </div>
     </div>
 
     <footer class="container-fluid text-center">
-        <p>&#169 Some cool people</p>
+        <p>Copyright &#169 2018 Get Out and Get Involved</p>
     </footer>
 
 </body>
@@ -288,4 +318,4 @@
     });
 </script>
 
-</html>
+</htm

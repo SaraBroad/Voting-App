@@ -32,7 +32,7 @@ $(document).ready(function () {
         }).then(
             function () {
                 console.log("Created new user");
-                // res.redirect
+                alert("Thank you for registering! Login using your credentials to continue")
             }
         )
     });

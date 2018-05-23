@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Forgot Password?</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:900|Montserrat:300" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Login Page</title>
 
     <style>
         body {
@@ -18,7 +18,7 @@
             font-weight: 100px;
         }
         
-        .container {
+        .form {
             margin-top: 150px;
         }
         
@@ -32,7 +32,8 @@
         }
         
         label,
-        input {
+        p,
+        .form-group {
             font-family: 'Montserrat', sans-serif;
         }
         /* Button Styling*/
@@ -55,6 +56,12 @@
             letter-spacing: 2px;
         }
         /* End of Button Styling */
+        
+        footer {
+            background-color: #000000;
+            padding: 50px 0px 0px 0px;
+            color: #c9c6c6;
+        }
     </style>
 </head>
 
@@ -62,21 +69,39 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                <h2>Forgot Password?</h2>
-                <label class="hello" for="getpassword">Enter your e-mail below to get a password reset link</label>
-                <br><br>
-                <input type="email" class="form-control" id="getpassword" name="get password" placeholder="Enter e-mail address" required>
-                <br><br>
-                <a href="/login"><button class="btn btn-primary" type="submit">Submit</button></a>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="form">
+                    <form>
+                        <h2>Login/Register</h3>
+                            <br>
+                            <!-- <form name="log" id="log" method="post" action="/post/login.jsp"> -->
+                            <div class="form-group">
+                                <label for="InputEmail">Email address</label>
+
+                                <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="InputPassword">Password</label>
+
+                                <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                            </div>
+                            <br>
+                            <p class="forgot"><a href="/getpassword">Forgot Password?</a></p>
+                            <p class="register"><a href="/register">Click here to create an account</a></p>
+                            <br>
+                            <button class="btn btn-primary" type="submit">Sign In</button>
+                    </form>
+                </div>
             </div>
-            <div class="col-xs-4"></div>
+            <div class="col-sm-4"></div>
         </div>
     </div>
     <footer class="container-fluid text-center">
         <p>Copyright &#169 2018 Get Out and Get Involved</p>
     </footer>
-</body>
+    <script src="assets/js/VolLogin.js" type="text/javascript"></script>
 
-</htm
+</body>
+</html>

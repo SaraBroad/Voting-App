@@ -21,9 +21,20 @@ module.exports = function (app) {
       .then(function (dbManager) {
         res.json(dbManager);
         console.log("event is through the API-ROUTE");
-
       });
   });
+
+  app.get("/api/manager/:email", function(req,res){
+    db.Manager.findOne({
+      where: {
+        email:req.params.email
+      }
+    }).then(function(dbManager){
+      res.json(dbManager.toJSON());
+
+    })
+  });
+
 
   // Posts Manager EVENTS for the Manager 
   app.post("/api/managersevents", function (req, res) {
@@ -39,7 +50,8 @@ module.exports = function (app) {
         zip_code: req.body.zip_code,
         phone_number: req.body.phone_number,
         volunteers_needed: req.body.volunteers_needed,
-        event_description: req.body.event_description
+        event_description: req.body.event_description,
+        ManagerId: req.body.managerId
       })
       .then(function (dbCampaignEvent) {
         res.json(dbCampaignEvent);
