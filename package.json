@@ -27,11 +27,7 @@
     "mysql2": "^1.5.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-<<<<<<< HEAD
-    "sequelize": "^4.37.8"
-=======
     "sequelize": "^4.37.7",
     "twilio": "^3.17.0"
->>>>>>> 75da7f079fbcaa4f60e5ed94a8284c8d43142ff9
   }
 }

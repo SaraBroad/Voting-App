@@ -42,7 +42,9 @@ module.exports = function (app) {
     }).then(function(dbManager){
       res.json(dbManager.toJSON());
 
-    })
+    }).catch(function(err){
+      res.json(status(400));
+    });
   });
 
 
