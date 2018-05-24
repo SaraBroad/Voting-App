@@ -24,30 +24,17 @@ module.exports = function (app) {
             res.json(dbEventVolunteer)
         });
     });
-
-    app.post("/api/postreg", function(req, res){
-        console.log(req.body);
-        db.EventVolunteer({
-            id: req.body.id,
-            time_slot: req.body.time_slot
-        }, {
-            where: {
-            //this is the event id
-            id: req.body.id    
-            }
-        }).then(function(dbEventVolunteer){
-            res.json(dbEventVolunteer);
-        });
-    
-    //.get?
-    app.get("/api/login", function(req, res){
+   
+    app.get("/api/postreg/:email", function(req, res){
         console.log(req.body);
         db.Volunteer.findOne({
-            email: req.body.email,
-            password: req.body.password
-        })
+            where: {
+                email: req.params.email
+            }
+        }).then(function(dbVolunteer){
+            res.json(dbVolunteer.toJSON());
     })
-        
+
         // const client = require('twilio')(accountSid, authToken);
         // const accountSid = 'AC99ccd7368d5e2e45dc69eeabaf2374cd'
         // const authToken = '6f2d5b8eff96067cbf5ab73a9332e1cb'

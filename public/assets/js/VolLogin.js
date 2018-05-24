@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     var LogInEvent = {
         volEmail: $("#InputEmail").val().trim(),
-        password: $("InputPassword").val().trim()
+        password: $("#InputPassword").val().trim()
     }
 
     console.log("loginevent = ", LogInEvent);
@@ -38,3 +38,4 @@ $(document).ready(function () {
     });
 
 });
+
